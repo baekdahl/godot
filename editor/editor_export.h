@@ -417,6 +417,11 @@ public:
 	virtual List<String> get_binary_extensions(const Ref<EditorExportPreset> &p_preset) const;
 	virtual Error export_project(const Ref<EditorExportPreset> &p_preset, bool p_debug, const String &p_path, int p_flags = 0);
 
+	virtual int get_device_count() const { return 1; };
+	virtual String get_device_name(int p_device) const { return "starsky"; }
+	virtual String get_device_info(int p_device) const { return "starsky"; }
+	virtual Error run(const Ref<EditorExportPreset> &p_preset, int p_device, int p_debug_flags);
+
 	void set_extension(const String &p_extension, const String &p_feature_key = "default");
 	void set_name(const String &p_name);
 	void set_os_name(const String &p_name);

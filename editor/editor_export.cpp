@@ -1521,6 +1521,14 @@ Error EditorExportPlatformPC::export_project(const Ref<EditorExportPreset> &p_pr
 	return err;
 }
 
+Error EditorExportPlatformPC::run(const Ref<EditorExportPreset> &p_preset, int p_device, int p_debug_flags) {
+	List<String> args;
+	args.push_back("run_remote.sh");
+	OS::ProcessID pid;
+	OS::get_singleton()->execute("/bin/bash", args, false, &pid);
+	return OK;
+}
+
 void EditorExportPlatformPC::set_extension(const String &p_extension, const String &p_feature_key) {
 	extensions[p_feature_key] = p_extension;
 }
